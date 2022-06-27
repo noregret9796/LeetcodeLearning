@@ -1,0 +1,11 @@
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        count = len(needle) #see how long is needle
+        if count == 0 :     #if empty return -1
+            return -1
+        else :
+            for i in range(0,len(haystack)) : #loop haystack, if a letter meets needle first letter, check if following 
+                if haystack[i] == needle[0] and haystack[i:(i+count)] == needle:
+                    return i
+            return -1
+        

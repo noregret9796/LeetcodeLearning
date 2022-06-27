@@ -1,0 +1,27 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        def function(string):
+            if string == "I":
+                return 1
+            if string == "V":
+                return 5
+            if string == "X":
+                return 10
+            if string == "L":
+                return 50
+            if string == "C":
+                return 100
+            if string == "D":
+                return 500
+            if string == "M":
+                return 1000    
+        sum=0
+        for n in range(0,len(s)):
+            v=function(s[n])
+            lv=function(s[n-1])
+            if n!=0 and lv < v :
+                sum=sum-2*lv
+            sum=sum+v            
+        return(sum)
+
+        

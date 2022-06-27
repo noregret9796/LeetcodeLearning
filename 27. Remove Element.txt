@@ -1,0 +1,12 @@
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        counts = 0
+        newlist = []
+        while  counts < len(nums):
+            if nums[counts] != val:
+                newlist.append(nums[counts])
+                counts += 1
+            else:
+                nums.remove(nums[counts])
+        return(len(newlist))
+        

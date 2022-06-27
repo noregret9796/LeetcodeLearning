@@ -1,0 +1,11 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        counts = 0
+        newlist = []
+        while counts < len(nums): #if counts still less than removed nums list
+            if counts == 0 or nums[counts] != nums[counts-1]: #if stared or new input
+                newlist.append(nums[counts])   #add new input to newlist
+                counts += 1   
+            else:   #if duplicate
+                nums.remove(nums[counts]) #delete duplicate number
+        return len(newlist)

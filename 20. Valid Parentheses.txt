@@ -1,0 +1,15 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        dict = {")": "(", "]": "[", "}": "{"}
+        stack = []
+        for i in s:
+            if i not in dict: #if left, add to stack
+                stack.append(i)
+            elif (stack == []): #if start with right or empty
+                return False
+            elif (dict[i] == stack[-1]):  #last string in list 
+                stack.pop()   
+            else:                   #if current symbol not in stack
+                return False
+        if stack == []:
+            return True

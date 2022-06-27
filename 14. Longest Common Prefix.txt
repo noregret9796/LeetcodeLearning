@@ -1,0 +1,13 @@
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+
+        shortlen = len(min(strs, key=len))
+        strs = [x[:shortlen] for x in strs]#cut all items to same short digits
+        
+        for i in range(0,shortlen):
+            if all([x == strs[0] for x in strs]): #if all items the same return item[1]
+                return strs[0]
+            else :                                #if not, cut the last digit
+                strs = [x[:-1] for x in strs]
+        return ""
+                
